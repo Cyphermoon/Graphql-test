@@ -25,10 +25,12 @@ fetchRequest(`
     })
 
 continent_list.addEventListener("change", async (e) => {
+    //Add a paragraph for each country name
+
     const value = e.target.value
     const countryData = await getCountries(value)
 
-    countries_list.innerHTML = " "
+    countries_list.innerHTML = ""
     countryData.forEach((data) => {
         let paragraph = document.createElement("p")
         paragraph.innerText = data.name
@@ -37,6 +39,8 @@ continent_list.addEventListener("change", async (e) => {
 })
 
 async function getCountries(countryCode) {
+    //Request for all countries in a continent
+
     const res = await fetchRequest(`
             query getCountries($code:ID!){
                 continent(code: $code){
@@ -50,9 +54,9 @@ async function getCountries(countryCode) {
     return resData.data.continent.countries
 }
 
-
 function fetchRequest(query, variables) {
     //Request for the specified url
+
     return fetch("https://countries.trevorblades.com/", {
         method: "POST",
         headers: {
