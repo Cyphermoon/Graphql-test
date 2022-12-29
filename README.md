@@ -6,6 +6,7 @@ This code is used to test how graphQL works. I used trevorblades API for countri
 
 ## Technologies
 - Javascript
+- HTML
 
 ## How to use
 Open the index.html file and select any continent
